@@ -12,10 +12,10 @@
     <session id="-1435310523">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.0" value="5" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.0" value="6" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -104,6 +104,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -127,7 +128,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,6 +196,7 @@
       <workItem from="1542516893508" duration="83000" />
       <workItem from="1542516980419" duration="49000" />
       <workItem from="1542517067371" duration="275000" />
+      <workItem from="1542517351620" duration="123000" />
     </task>
     <task id="LOCAL-00001" summary="添加文件">
       <created>1542514159828</created>
@@ -215,12 +216,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="832000" />
+    <option name="totallyTimeSpent" value="955000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="94" y="9" width="1784" height="1022" extended-state="0" />
+    <frame x="86" y="0" width="1784" height="1022" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26465467" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26813698" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="设计器" order="2" />
       <window_info id="UI Designer" order="3" />
