@@ -115,15 +115,18 @@
 
 
 
-  <meta name="keywords" content="Object">
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657/** * 对象的自我拯救 * 被拯救后的对象信息丢失,但是对象的地址值不变 * * @author ZZQ */public class FinalizeEscapeGC &amp;#123;">
+<meta name="keywords" content="Object">
 <meta property="og:type" content="article">
 <meta property="og:title" content="finalize方法之对象的自我拯救">
 <meta property="og:url" content="https://zzqo.github.io/p/c96a.html">
 <meta property="og:site_name" content="ZZQ">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657/** * 对象的自我拯救 * 被拯救后的对象信息丢失,但是对象的地址值不变 * * @author ZZQ */public class FinalizeEscapeGC &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-19T11:22:05.121Z">
+<meta property="og:updated_time" content="2019-04-19T11:47:03.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="finalize方法之对象的自我拯救">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657/** * 对象的自我拯救 * 被拯救后的对象信息丢失,但是对象的地址值不变 * * @author ZZQ */public class FinalizeEscapeGC &amp;#123;">
 
 
 
@@ -427,7 +430,7 @@
                 
               
 
-              <time title="创建时间：2019-04-19 19:19:22 / 修改时间：19:22:05" itemprop="dateCreated datePublished" datetime="2019-04-19T19:19:22+08:00">2019-04-19</time>
+              <time title="创建时间：2019-04-19 19:19:22 / 修改时间：19:47:03" itemprop="dateCreated datePublished" datetime="2019-04-19T19:19:22+08:00">2019-04-19</time>
             
 
             
@@ -483,7 +486,7 @@
       
 
       
-        
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对象的自我拯救</span></span><br><span class="line"><span class="comment"> * 被拯救后的对象信息丢失,但是对象的地址值不变</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ZZQ</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FinalizeEscapeGC</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> FinalizeEscapeGC SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 判断是否还活着</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">isAlive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(SAVE_HOOK.name + <span class="string">"还活着"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.finalize();</span><br><span class="line">        System.out.println(<span class="string">"finalize方法执行了"</span>);</span><br><span class="line">        <span class="comment">// 与对象建立联系，自救</span></span><br><span class="line">        FinalizeEscapeGC.SAVE_HOOK = <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        SAVE_HOOK = <span class="keyword">new</span> FinalizeEscapeGC();</span><br><span class="line">        SAVE_HOOK.name = <span class="string">"zzq"</span>;</span><br><span class="line">        System.out.println(<span class="string">"被拯救前对象地址值："</span> + SAVE_HOOK);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//第一次自救</span></span><br><span class="line">        SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line">        System.gc();</span><br><span class="line">        <span class="comment">//因为finalize的优先级低，先等一下</span></span><br><span class="line">        Thread.sleep(<span class="number">500</span>);</span><br><span class="line">        <span class="keyword">if</span> (SAVE_HOOK != <span class="keyword">null</span>) &#123;</span><br><span class="line">            SAVE_HOOK.isAlive();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"第一次自救失败"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"被拯救后对象地址值："</span> + SAVE_HOOK);</span><br><span class="line">        <span class="comment">//第二次自救</span></span><br><span class="line">        <span class="comment">//因为每个对象的finalize()方法只会被系统自动调用一次，所以第一次调用后，</span></span><br><span class="line">        <span class="comment">//第二次自救时不会再调用finalize(),自然也就不会与其他的对象产生联系，从而自救失败</span></span><br><span class="line">        SAVE_HOOK = <span class="keyword">null</span>;</span><br><span class="line">        System.gc();</span><br><span class="line">        <span class="comment">//因为finalize的优先级低，先等一下</span></span><br><span class="line">        Thread.sleep(<span class="number">500</span>);</span><br><span class="line">        <span class="keyword">if</span> (SAVE_HOOK != <span class="keyword">null</span>) &#123;</span><br><span class="line">            SAVE_HOOK.isAlive();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"第二次自救失败"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//finalize()虽然能够实现对象自救，但是不要轻易使用，因为他的运行代价太大，不确定性高，无法确定各个对象的调用顺序。</span></span><br><span class="line">    <span class="comment">//而且finalize()能做的事，try-finally都能做，而且做得更好</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -597,7 +600,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -631,7 +634,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
