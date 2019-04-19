@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Spring与SpringMVC的容器冲突解决]]></title>
+    <url>%2Fp%2F69d4.html</url>
+    <content type="text"><![CDATA[博客园1.在applicationContext.xml中配置:12345&lt;!-- Spring容器中注册非@controller注解的Bean --&gt;&lt;context:component-scan base-package="com.hafiz.www"&gt; &lt;!--排除@Controller--&gt; &lt;context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/&gt;&lt;/context:component-scan&gt; 2.applicationContext-MVC.xml中配置1234567&lt;!-- SpringMVC容器中只注册带有@controller注解的Bean --&gt;&lt;!--use-default-filters：默认true 会自动注册对@Component、@ManagedBean、@Named注解的Bean进行扫描 这里改为false让其只扫描@Controller注解--&gt;&lt;context:component-scan base-package="com.hafiz.www" use-default-filters="false"&gt; &lt;!--引入@Controller--&gt; &lt;context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" /&gt;&lt;/context:component-scan&gt;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[序列1,11,21,1211,111221]]></title>
     <url>%2Fp%2Fa79b.html</url>
     <content type="text"><![CDATA[1. 序列1，11，21，1211，111221，_，下一个数是什么？答：312211 1 读为： 1个1，提取数字11（即为第二个数）； 11 读为： 2个1，提取数字21（即为第三个数）； 21 读为： 1个2、1个1，提取数字1211（即为第四个数）； 1211 读为：1个1、1个2、2个1；提取数字111221（即为第四个数）； 2. 编程实现123456789101112131415161718192021222324252627282930313233public class Demo &#123; public static void main(String[] args) &#123; int count = 6; String[] str = new String[count]; str[0] = "1"; str[1] = "11"; int j; StringBuilder result; for (int i = 2; i &lt; count; i++) &#123; char[] pri = str[i - 1].toCharArray(); int n; result = new StringBuilder(); j = 0; for (n = 0; n &lt; pri.length - 1; n++) &#123; if (pri[n] == pri[n + 1]) &#123; j++; &#125; else &#123; j++; result.append(j); result.append(pri[n]); j = 0; &#125; &#125; j++; result.append(j); result.append(pri[n]); str[i] = result.toString(); &#125; for (int i = 1; i &lt;= count; i++) &#123; System.out.println(i + "个数: " + str[i-1]); &#125; &#125;&#125;]]></content>
