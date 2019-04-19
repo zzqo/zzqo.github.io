@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JDK8四大内置核心函数式接口]]></title>
+    <url>%2Fp%2Fd0ca.html</url>
+    <content type="text"><![CDATA[JDK8 中的四大核心函数式接口 @FunctionalInterface标记在接口上，“函数式接口”是指仅仅只包含一个抽象方法的接口1. Consumer：消费型接口 void accpt(T t); 12345678910public class ConsumerTest &#123; @Test public void test() &#123; happy(1000d, (money) -&gt; System.out.println("今天消费了" + money + "元")); &#125; public static void happy(Double money, Consumer&lt;Double&gt; customer) &#123; customer.accept(money); &#125;&#125; 2. Supplier：供给型接口 T get(); 1234567891011121314151617181920212223public class SupplierTest &#123; @Test public void test() &#123; //生成10个100以内的随机数 List&lt;Integer&gt; list = getNumList(10, () -&gt; (int) (Math.random() * 100)); list.forEach(System.out::println); &#125; /** * 产生指定个数的随机数放入集合中并返回 * * @param num 生成随机数的个数 * @param supplier 供给型接口 * @return List */ public static List&lt;Integer&gt; getNumList(int num, Supplier&lt;Integer&gt; supplier) &#123; List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); for (int i = 0; i &lt; num; i++) &#123; list.add(supplier.get()); &#125; return list; &#125;&#125; 3. Function：函数式接口 R apply(T t); 12345678910111213141516public class FunctionTest &#123; @Test public void test1() &#123; System.out.println(strHandler("hello world !", (str)-&gt;str.toUpperCase())); &#125; @Test public void test2() &#123; // 类::实例方法名 System.out.println(strHandler("hello world !",String::toUpperCase)); &#125; public static String strHandler(String str, Function&lt;String, String&gt; function) &#123; return function.apply(str); &#125;&#125; 4. Predicate：消费型接口 boolean test(T t); 1234567891011121314151617181920212223242526public class PredicateTest &#123; @Test public void test() &#123; List&lt;String&gt; list = Arrays.asList("hello java", "C#", "C++", "jar", "java"); // 判断集合中是否包含 java 包含就添加进新的集合并返回 List&lt;String&gt; stringList = filterStr(list, (str) -&gt; str.contains("java")); stringList.forEach(System.out::println); &#125; /** * 将满足条件的字符串放进新的集合中并返回 * * @param list List * @param predicate 断言型接口 * @return List */ public static List&lt;String&gt; filterStr(List&lt;String&gt; list, Predicate&lt;String&gt; predicate) &#123; List&lt;String&gt; strList = new ArrayList&lt;&gt;(); for (String str : list) &#123; if (predicate.test(str)) &#123; strList.add(str); &#125; &#125; return strList; &#125;&#125;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>JDK8</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[finalize方法之对象的自我拯救]]></title>
     <url>%2Fp%2Fc96a.html</url>
     <content type="text"></content>
