@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[finalize方法之对象的自我拯救]]></title>
+    <url>%2Fp%2Fc96a.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Object</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java中线程的4种创建方式]]></title>
     <url>%2Fp%2F424a.html</url>
     <content type="text"><![CDATA[1. 继承Thread类123456789101112131415public class ThreadDemo &#123; public static void main(String[] args) &#123; MyThread myThread = new MyThread(); Thread t = new Thread(myThread); t.start(); System.out.println(Thread.currentThread().getName()); &#125;&#125;class MyThread extends Thread &#123; @Override public void run() &#123; System.out.println(Thread.currentThread().getName()); &#125;&#125; 2. 实现Runnable接口123456789101112131415public class ThreadDemo &#123; public static void main(String[] args) &#123; MyThread myThread = new MyThread(); Thread t = new Thread(myThread); t.start(); System.out.println(Thread.currentThread().getName()); &#125;&#125;class MyThread implements Runnable &#123; @Override public void run() &#123; System.out.println(Thread.currentThread().getName()); &#125;&#125; 3. 使用Callable和Future创建线程123456789101112131415161718public class ThreadDemo &#123; public static void main(String[] args) &#123; MyCallable myCallable = new MyCallable(); FutureTask&lt;Integer&gt; future = new FutureTask&lt;&gt;(myThread); Thread t = new Thread(future); t.start(); System.out.println(Thread.currentThread().getName()); &#125;&#125;class MyCallable implements Callable&lt;Integer&gt; &#123; @Override public Integer call() throws Exception &#123; System.out.println(Thread.currentThread().getName()); return 0; &#125;&#125; 4. 使用线程池创建线程1234567891011121314151617181920212223public class ThreadDemo &#123; public static void main(String[] args) throws ExecutionException, InterruptedException &#123; // 创建一个具有固定大小的线程池 ExecutorService executorService = Executors.newFixedThreadPool(3); // 创建一个任务 Callable&lt;Integer&gt; callable = new MyCallable(); // 提交任务 Future future = executorService.submit(callable); // 获取任务执行结果 此方法会阻塞 System.out.println(future.get()); // 关闭线程池 executorService.shutdown(); &#125;&#125;class MyCallable implements Callable&lt;Integer&gt; &#123; @Override public Integer call() throws Exception &#123; System.out.println(Thread.currentThread().getName()); return 0; &#125;&#125;]]></content>
