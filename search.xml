@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[福建拓展宝科技有限公司2019面试题]]></title>
     <url>%2Fp%2Ff17f.html</url>
-    <content type="text"><![CDATA[根据aa表写出对应的查询结果 rq shengfu 2018-10-01 胜 2018-10-01 胜 2018-10-01 负 2018-10-01 负 2018-10-20 胜 2018-10-20 胜 2018-10-20 负 2018-10-20 负 查询结果： rq 胜 负 2018-10-01 2 2 2018-10-01 2 2 答：1SELECT rq,sum(shenfu=&quot;胜&quot;) 胜,sum(shenfu=&quot;负&quot;) 负 FROM aa GROUP BY rq 1234SELECT rq, COUNT( CASE WHEN shenfu = &apos;胜&apos; THEN &apos;胜&apos;END ) 胜, COUNT( CASE WHEN shenfu = &apos;负&apos; THEN &apos;负&apos;END ) 负FROM aa GROUP BY rq in 和 exists 区别 in()适合B表比A表数据小的情况 exists()适合B表比A表数据大的情况 当A表数据与B表数据一样大时,in与exists效率差不多,可任选一个使用.]]></content>
+    <content type="text"><![CDATA[面试时间： 2019-4-16 根据aa表写出对应的查询结果 rq shengfu 2018-10-01 胜 2018-10-01 胜 2018-10-01 负 2018-10-01 负 2018-10-20 胜 2018-10-20 胜 2018-10-20 负 2018-10-20 负 查询结果： rq 胜 负 2018-10-01 2 2 2018-10-01 2 2 答：1SELECT rq,sum(shenfu=&quot;胜&quot;) 胜,sum(shenfu=&quot;负&quot;) 负 FROM aa GROUP BY rq 1234SELECT rq, COUNT( CASE WHEN shenfu = &apos;胜&apos; THEN &apos;胜&apos;END ) 胜, COUNT( CASE WHEN shenfu = &apos;负&apos; THEN &apos;负&apos;END ) 负FROM aa GROUP BY rq in 和 exists 区别 in()适合B表比A表数据小的情况 exists()适合B表比A表数据大的情况 当A表数据与B表数据一样大时,in与exists效率差不多,可任选一个使用.]]></content>
       <categories>
         <category>Java</category>
       </categories>
