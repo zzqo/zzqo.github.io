@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[北京米纳科技有限公司面试题]]></title>
+    <url>%2Fp%2F24fe.html</url>
+    <content type="text"><![CDATA[1. 有一个11位数，如何判断他是否是一个回文数(1234321就是一个回文数)12345678910111213141516171819202122232425262728public class PalindromeNumber &#123; public static boolean isPalindrome(int num) &#123; String str = String.valueOf(num); for (int i = 0; i &lt; str.length() / 2; i++) &#123; if (str.charAt(i) != str.charAt(str.length() - i - 1)) &#123; return false; &#125; &#125; return true; &#125; public static boolean isPalindrome2(int num) &#123; String str = new StringBuilder(num).reverse().toString(); return str.equals(String.valueOf(num)); &#125; public static boolean isPalindrome3(int num) &#123; if (num &lt; 0 || (num != 0 &amp;&amp; num % 10 == 0)) &#123; return false; &#125; int rev = 0; while (num &gt; rev) &#123; rev = rev * 10 + num % 10; num = num / 10; &#125; return (num == rev || num == rev / 10); &#125;&#125; 2. n个人围成一圈，顺序排号。从第一个人开始报数（从1到3报数），凡报到3的人退出圈子，问最后留下的是原来第几号的哪位?12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public class NRenShu &#123; public int isN(int n) &#123; int m = 3, s = 0; for (int i = 2; i &lt;= n; ++i) &#123; s = (s + m) % i; &#125; return s + 1; &#125; public int isN2(int n) &#123; int i, p = 0, q; int[] a = new int[100]; q = n; // 给数组赋值 1-输入的数字 for (i = 0; i &lt; n; i++) &#123; a[i] = i + 1; &#125; for (i = 0; ; i++) &#123; if (i == n) &#123; //当i++一直到n时，肯定有一些没有被选到，比如我们输入8,第一轮是3,6被赋值0，当i=8时，重置i的值继续下一轮 i = 0; &#125; if (a[i] != 0) &#123; //我们下面定义的是当循环到三时，就赋值0，所以这边等0的不考虑在内 p++; &#125; else &#123; // 此数已经被删除，跳过 continue; &#125; if (p % 3 == 0) &#123; //这个就是从0一直加，到三的倍数就赋值为0，从而就达到我们的目的 a[i] = 0; q--; &#125; //上面q=n;表明q==n,只有一个为0就减一，为下面做铺垫 if (q == 1) &#123; break; //当剩下最后一个就输出 &#125; &#125; int num = -1; for (i = 0; i &lt; n; i++) &#123; if (a[i] != 0) &#123; num = a[i]; break; &#125; &#125; return num; &#125;&#125;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>面试题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Spring与SpringMVC的容器冲突解决]]></title>
     <url>%2Fp%2F69d4.html</url>
     <content type="text"><![CDATA[博客园1.在applicationContext.xml中配置:12345&lt;!-- Spring容器中注册非@controller注解的Bean --&gt;&lt;context:component-scan base-package="com.hafiz.www"&gt; &lt;!--排除@Controller--&gt; &lt;context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/&gt;&lt;/context:component-scan&gt; 2.applicationContext-MVC.xml中配置1234567&lt;!-- SpringMVC容器中只注册带有@controller注解的Bean --&gt;&lt;!--use-default-filters：默认true 会自动注册对@Component、@ManagedBean、@Named注解的Bean进行扫描 这里改为false让其只扫描@Controller注解--&gt;&lt;context:component-scan base-package="com.hafiz.www" use-default-filters="false"&gt; &lt;!--引入@Controller--&gt; &lt;context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" /&gt;&lt;/context:component-scan&gt;]]></content>
